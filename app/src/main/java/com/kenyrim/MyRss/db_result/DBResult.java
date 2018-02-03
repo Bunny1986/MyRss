@@ -125,7 +125,8 @@ public class DBResult {
                     RSS_NAME + " TEXT, " +
                     RSS_TITLE + " TEXT, " +
                     RSS_DESCRIPTION + " TEXT, " +
-                    RSS_LINK + " TEXT ); ";
+                    RSS_LINK + " TEXT, " +
+                    "UNIQUE(" + RSS_LINK + "," + RSS_DESCRIPTION + ") ON CONFLICT IGNORE);";
             db.execSQL(sql);
         }
 
